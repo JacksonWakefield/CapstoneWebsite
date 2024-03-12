@@ -46,7 +46,7 @@
 
     <div id="bottom_block">
       <p id="bottom_block_first">If you have questions or would like more information, please contact sdosburn@asu.edu</p>
-      <p><i>Site created by Ryan Meuth</i></p>
+      <p id="bottom_block_second"><i>Site created by Ryan Meuth</i></p>
     </div>
   </body>
 </html>

@@ -99,3 +99,13 @@ p.info-text{
 h2{
     font-size:157%;
 }
+
+p#bottom_block_first{
+    font-family: Oswald;
+    font-size: 80%;
+}
+
+p#bottom_block_second{
+    font-family: 'Open Sans';
+    font-size: 80%;
+}
