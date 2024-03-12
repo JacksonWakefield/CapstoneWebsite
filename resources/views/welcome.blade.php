@@ -2,15 +2,24 @@
 <html>
   <head>
     <link rel="stylesheet" href="<?php echo asset('welcome.css')?>" type="text/css">
+
+    <!--font stuff!-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
   </head>
   <body>
     <div id="upper_block">
         <p style="text-align: center; padding-top:0.5%">NAVIGATOR GOES HERE</p>
     </div>
+
     <div id="bg_img_block">
       <div id="bg_img_block_img"></div>
       <div id="bg_img_block_seminars">
-        <h1 id="bg_img_block_seminars_text">Seminars</h1>
+        <p id="bg_img_block_seminars_text">SEMINARS</h1>
         
       </div>
       <div id="bg_img_block_seminars_bar"></div>

@@ -32,13 +32,16 @@ div#bg_img_block_img{
 
 }
 
-h1#bg_img_block_seminars_text{
+p#bg_img_block_seminars_text{
     width: 100%;
-    padding-top: 3%;
+    padding-top: 0%;
     height: auto;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 475%;
+    font-family: Oswald;
+    font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: 100 100;
+    font-size: 490%;
 }
 
 div#bg_img_block_seminars_bar{
@@ -86,4 +89,13 @@ div#bottom_block p{
 
 p#bottom_block_first{
     padding-top: 2.5%;
+}
+
+p.info-text{
+    font-family: 'Open Sans';
+    font-size: 108%;
+}
+
+h2{
+    font-size:157%;
 }
