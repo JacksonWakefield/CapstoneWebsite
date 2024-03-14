@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('CSE-Showcase');
+});
+
+Route::get('/seminars', function () {
     return view('welcome');
 });
