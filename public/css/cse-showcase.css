@@ -4,33 +4,27 @@ section.showcase-single{
 }
 
 h2.showcase-single-description-title{
-    text-align: center;
-}
-
-#yt-link{
-    max-width: 100%;
-    height: auto;
+    font-family: 'Open Sans';
 }
 
 div.showcase-single-wrapper{
     display: flex;
-    flex-direction: row;
     padding: 2% 0;
 }
 
 div.showcase-single-yt-wrapper{
-    max-width: 28%;
-    float: left;
+    font-family: 'Open Sans';
+    max-width: 40%;
 }
 
 div.showcase-single-description-wrapper{
     flex-grow: 2;
-    float: right;
     padding: 1%;
     height: fit-content;
 }
 
 p.showcase-single-description-p{
+    font-family: 'Open Sans';
     text-align: justify;
 }
 
@@ -53,4 +47,30 @@ section.divider-single{
     margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
+}
+div.TopBanner{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("https://lh5.googleusercontent.com/y0J85S96H8UuMGSocFHFYLIYQXG8YQvhx6N3pk9cJo1IZwtb_4AISDkl3orCqDoKbYD9pA=w16383");
+    width: 100%;
+    height: 60%;
+    background-color: #c1c1c1;
+}
+
+.flex-left{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-right{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.align-left{
+    text-align: left;
+}
+
+.align-right{
+    text-align: right;
 }
