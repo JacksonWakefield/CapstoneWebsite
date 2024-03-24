@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShowcaseCrud;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,47 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/showcase', function () {
-    return view('CSE-Showcase', [ // PLACEHOLDER
-        'listings' => [
-            [   
-                'Team Name' => 'Sample Team',
-                'YT_Link'=> 'https://www.youtube.com/embed/MYyJ4PuL4pY?si=vch-Vmz9gT0TiaUI',
-                'Team Members'=> 'Jackson Wakefield, Jacob Licko',
-                'Description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-            ],
-            [   
-                'Team Name' => 'Sample Team 2',
-                'YT_Link'=> 'https://www.youtube.com/embed/MYyJ4PuL4pY?si=vch-Vmz9gT0TiaUI',
-                'Team Members'=> 'Jackson Wakefield, Jacob Licko',
-                'Description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-            ],
-            [   
-                'Team Name' => 'Sample Team 3',
-                'YT_Link'=> 'https://www.youtube.com/embed/MYyJ4PuL4pY?si=vch-Vmz9gT0TiaUI',
-                'Team Members'=> 'Jackson Wakefield, Jacob Licko',
-                'Description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-            ],
-            [   
-                'Team Name' => 'Sample Team 4',
-                'YT_Link'=> 'https://www.youtube.com/embed/MYyJ4PuL4pY?si=vch-Vmz9gT0TiaUI',
-                'Team Members'=> 'Jackson Wakefield, Jacob Licko',
-                'Description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-            ],
-            [   
-                'Team Name' => 'Sample Team 5',
-                'YT_Link'=> 'https://www.youtube.com/embed/MYyJ4PuL4pY?si=vch-Vmz9gT0TiaUI',
-                'Team Members'=> 'Jackson Wakefield, Jacob Licko',
-                'Description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-            ]
-        ]
-    ]); 
-});
+Route::get('/survey', [ShowcaseCrud::class, 'surveyIndex']);
+Route::post('/add', [ShowcaseCrud::class,'add']);
+
+Route::get('/showcase', [ShowcaseCrud::class,'showcaseIndex']);
+Route::post('/get', [ShowcaseCrud::class,'get']);
 
 Route::get('/seminars', function () {
     return view('welcome');
 });
 
-Route::get('/',function () {
-    return view('survey');
-});

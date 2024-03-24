@@ -9,56 +9,104 @@
 
 <body>
 <!-- SHOWCASE COMPONENT !-->
-    <div class="survey-wrapper">
-        <div class="survey-wrapper-content">
-        <!--survey questions !-->
-            <div class="survey-header info-wrapper">
-                <h1 class="survey-header-title">Capstone Showcase Information Form: </h1>
-                <p class="survey-header-description">Description of this form will go here.</p>
-            </div>
-            <div class="survey-question info-wrapper">
-                <p class="survey-label">Capstone Group Name: </p>
-                <!--<p class="survey-description">sample description</p> !-->
-                <input type="text" class="survey-input-short" placeholder="Your answer: "></input>
-            </div>
-            <div class="survey-question info-wrapper">
-                <p class="survey-label">Name: </p>
-                <p class="survey-description">Name of the person filling out the form (no other team names)</p>
-                <input type="text" class="survey-input-short" placeholder="Your answer: "></input>
-            </div>
-            <div class="survey-question info-wrapper">
-                <p class="survey-label">Email: </p>
-                <p class="survey-description">Email of the person filling out the form (no other team emails)</p>
-                <input type="text" class="survey-input-short" placeholder="Your answer: "></input>
-            </div>
-            <div class="survey-question info-wrapper">
-                <p class="survey-label">label: </p>
-                <p class="survey-description">sample description</p>
-                <input type="text" class="survey-input-long" placeholder="Your answer: "></input>
-            </div>
-            <div class="survey-question info-wrapper">
-                <p class="survey-label">Does Your Project Have an NDA?: </p>
-                <p class="survey-description">sample description</p>
-                <ul>
-                    <li><input type="radio" name="option" class="survey-input-checkbox">Yes</input></li>
-                    <li><input type="radio" name="option" class="survey-input-checkbox">No</input></li>
-            </ul>
-            </div>
-            <div class="survey-question info-wrapper">
-                <p class="survey-label">Project Description: </p>
-                <p class="survey-description">Probably copy paste this from assignment description</p>
-                <input type="text" class="survey-input-long" placeholder="Your answer: "></input>
-            </div>
-            <div class="survey-question info-wrapper">
-                <p class="survey-label">Link to Group's Youtube Video: </p>
-                <p class="survey-description">Some information to help them understand exactly what to submit (maybe a sample link sorta deal)</p>
-                <input type="text" class="survey-input-short" placeholder="Your answer: "></input>
-            </div>
+    <div><?php 
+    
+    if(DB::connection()->getPdo()){
+        echo 'Successfully connected to Database with name: '.DB::connection()->getDatabaseName().'';
+    }
 
-            <div class="survey-submit">
-                <button id="button-submit">Submit</button>
+    ?></div>
+
+    <form action="add" method="post">
+
+        @csrf
+        <div class="survey-wrapper">
+            <div class="survey-wrapper-content">
+            <!--survey questions !-->
+                <div class="survey-header info-wrapper">
+                    <h1 class="survey-header-title">Capstone Showcase Information Form: </h1>
+                    <p class="survey-header-description">Description of this form will go here.</p>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">Email: </p>
+                    <p class="survey-description">Email of the person filling out the form (no other team emails)</p>
+                    <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="Email"></input>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">Project Title: </p>
+                    <!--<p class="survey-description">sample description</p> !-->
+                    <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="ProjectTitle"></input>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">Project Description (3 sentences or less): </p>
+                    <p class="survey-description">This is the text that will accompany your video thumbnail on the main webpage</p>
+                    <input type="text" class="survey-input survey-input-long" placeholder="Your answer: " name="ProjectDescription"></input>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">Team Name: </p>
+                    <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="TeamName"></input>
+                </div>
+                
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">Sponsor/Mentor: </p>
+                    <p class="survey-description">If your team had a sponsor or mentor for your project, please list the organization or the individual. If you didn't have a sponsor, enter "NONE"</p>
+                    <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="Sponsor"></input>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">Team Members Full Names: </p>
+                    <p class="survey-description">Please type out all team members full names, separated by a comas</p>
+                    <input type="text" class="survey-input survey-input-long" placeholder="Your answer: " name="MemberNames"></input>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">How many students on your team will be able to attend the showcase? </p>
+                    <p class="survey-description"></p>
+                    <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="Attendance"></input>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">How many members of your team would request a vegetarian lunch option? </p>
+                    <p class="survey-description"></p>
+                    <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="VegLunch"></input>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">Course Number (Example: CSE486):</p>
+                    <p class="survey-description"></p>
+                    <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="CourseNumber"></input>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">Will your group be bringing a demo? </p>
+                    <p class="survey-description"></p>
+                    <ul>
+                        <li><input type="radio" name="Demo" class="survey-input-checkbox" value="Yes">Yes</input></li>
+                        <li><input type="radio" name="Demo" class="survey-input-checkbox" value="No">No</input></li>
+                </ul>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">If so, will your group need access to power? </p>
+                    <p class="survey-description">If you answered no to the previous question, select no here as well</p>
+                    <ul>
+                        <li><input type="radio" name="Power" class="survey-input-checkbox" value="Yes">Yes</input></li>
+                        <li><input type="radio" name="Power" class="survey-input-checkbox" value="No">No</input></li>
+                </ul>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">Does your group have an NDA?</p>
+                    <p class="survey-description"></p>
+                    <ul>
+                        <li><input type="radio" name="NDA" class="survey-input-checkbox" value="Yes">Yes</input></li>
+                        <li><input type="radio" name="NDA" class="survey-input-checkbox" value="No">No</input></li>
+                </ul>
+                </div>
+                <div class="survey-question info-wrapper">
+                    <p class="survey-label">YouTube Video Link: </p>
+                    <p class="survey-description">This is the YouTube link for the video overview of your project, and should have the graphic abstract you created as the thumbnail. The project name should be the title of the YouTube video. </p>
+                    <input type="text" class="survey-input survey-input-long" placeholder="Your answer: " name="VideoLink"></input>
+                </div>
+
+                <div class="survey-submit">
+                    <button id="button-submit">Submit</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
 </body>

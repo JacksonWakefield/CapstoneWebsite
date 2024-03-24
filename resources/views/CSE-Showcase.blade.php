@@ -11,25 +11,25 @@
 <!-- SHOWCASE COMPONENT !-->
     <div class="TopBanner"></div>
     <?php $i = 0;?>
-    <?php foreach($listings as &$listing): ++$i ?>
+    <?php foreach($list as &$listing): ++$i ?>
     <section class="showcase-single">
         <div class="showcase-single-wrapper <?=$i % 2 === 0 ? 'flex-right' : 'flex-left'?>">
             <div class="showcase-single-yt-wrapper individual-wrapper">
                 <!-- <a href="https://www.youtube.com/watch?v=ZAQwg4BtbYo"></a> *TODO: replace with youtube wrapper* !-->
-                <iframe id="yt_frame" src="{{$listing['YT_Link']}}"></iframe>
+                <iframe id="yt_frame" src="{{$listing->VideoLink}}"></iframe>
                 <p class="showcase-single-yt-p">
                     Team Members are:   
                 </p>
                 <p class="showcase-single-yt-p">
-                    {{$listing['Team Members']}}
+                    {{$listing->MemberNames}}
                 </p>
             </div>
             <div class="showcase-single-description-wrapper individual-wrapper">
                 <h2 class="showcase-single-description-title <?=$i % 2 === 0 ? 'align-right' : 'align-left'?>">
-                    {{$listing['Team Name']}}
+                    {{$listing->TeamName}}
                 </h2>
                 <p class="showcase-single-description-p">
-                    {{$listing['Description']}}
+                    {{$listing->ProjectDescription}}
                 </p>
             </div>
         </div>
