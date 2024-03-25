@@ -5,14 +5,33 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Validator;
 
 class ShowcaseCrud extends Controller
 {
 
     public function add(Request $request){
+        $validator = Validator::make($request->all(), [
+            'Email' => 'required|email|regex:/@asu\.edu$/i',
+            'ProjectTitle' => 'required|unique:ShowcaseEntries,ProjectTitle',
+            'VideoLink' => 'required|url',
+        ], [
+            'Email.regex' => 'The email must be an "@asu.edu" email address',
+            'ProjectTitle.unique' => 'This project name already exists, duplicate entry detected.',
+            'VideoLink.url' => 'The video link must be a valid url'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        $videolink = $request->input('VideoLink');
+        $embedlink = $this->getYouTubeEmbedLink($videolink);
+        $request->merge(['VideoLink' => $embedlink]);
+
         $request->validate([
-            "Email"=>"required",
-            "ProjectTitle"=>"required",
+            //"Email"=>"required",
+            //"ProjectTitle"=>"required",
             "ProjectDescription"=>"required",
             "TeamName"=>"required",
             "Sponsor"=>"required",
@@ -23,7 +42,7 @@ class ShowcaseCrud extends Controller
             "Demo"=>"required",
             "Power"=>"required",
             "NDA"=> "required",
-            "VideoLink"=>"required"
+            //"VideoLink"=>"required"
         ]);
 
         $query = DB::table('ShowcaseEntries')->insert([
@@ -47,6 +66,19 @@ class ShowcaseCrud extends Controller
         }else{
             return back()->with("fail","Something webnt wrong - data have NOT been inserted");
         }
+    }
+
+    private function getYouTubeEmbedLink($watchLink)
+    {
+        $videoId = $this->getYouTubeVideoId($watchLink);
+        return 'https://www.youtube.com/embed/' . $videoId;
+    }
+
+    private function getYouTubeVideoId($watchLink)
+    {
+        $query = parse_url($watchLink, PHP_URL_QUERY);
+        parse_str($query, $params);
+        return isset($params['v']) ? $params['v'] : null;
     }
 
     public function surveyIndex(){
