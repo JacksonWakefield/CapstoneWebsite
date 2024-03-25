@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ShowcaseCrud extends Controller
 {
@@ -64,12 +65,23 @@ class ShowcaseCrud extends Controller
         return view("CSE-Showcase", $data);
     }
 
-    public function get(Request $request){
+    public function adminIndex(){
 
+
+        return view("admin");
+    }
+
+    public function getPass(Request $request){
+        $data = array(
+            'list' => DB::table("admin_pass_hash")->get()
+        );
+        foreach( $data as $key ){
+            if(Hash::check($key, $request->input('pass'))){
+                return back()->with("success", "THIS WORKED");
+            }
+        }
+
+        return back()->with("error","DID NOT WORK");
     }
 }
-
-
-
-
 ?>

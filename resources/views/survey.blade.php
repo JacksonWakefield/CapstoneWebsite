@@ -9,13 +9,15 @@
 
 <body>
 <!-- SHOWCASE COMPONENT !-->
-    <div><?php 
     
-    if(DB::connection()->getPdo()){
-        echo 'Successfully connected to Database with name: '.DB::connection()->getDatabaseName().'';
-    }
+    
+    <!--<div><?php 
+    
+    //if(DB::connection()->getPdo()){
+    //    echo 'Successfully connected to Database with name: '.DB::connection()->getDatabaseName().'';
+    //} debug - uncomment when unsure if connecting to database properly
 
-    ?></div>
+    ?></div>!-->
 
     <form action="add" method="post">
 
@@ -31,46 +33,55 @@
                     <p class="survey-label">Email: </p>
                     <p class="survey-description">Email of the person filling out the form (no other team emails)</p>
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="Email"></input>
+                    <br/><span>@error('Email'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Project Title: </p>
                     <!--<p class="survey-description">sample description</p> !-->
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="ProjectTitle"></input>
+                    <br/><span>@error('ProjectTitle'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Project Description (3 sentences or less): </p>
                     <p class="survey-description">This is the text that will accompany your video thumbnail on the main webpage</p>
                     <input type="text" class="survey-input survey-input-long" placeholder="Your answer: " name="ProjectDescription"></input>
+                    <br/><span>@error('ProjectDescription'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Team Name: </p>
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="TeamName"></input>
+                    <br/><span>@error('TeamName'){{ $message }}@enderror</span>
                 </div>
                 
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Sponsor/Mentor: </p>
                     <p class="survey-description">If your team had a sponsor or mentor for your project, please list the organization or the individual. If you didn't have a sponsor, enter "NONE"</p>
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="Sponsor"></input>
+                    <br/><span>@error('Sponsor'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Team Members Full Names: </p>
                     <p class="survey-description">Please type out all team members full names, separated by a comas</p>
                     <input type="text" class="survey-input survey-input-long" placeholder="Your answer: " name="MemberNames"></input>
+                    <br/><span>@error('MemberNames'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">How many students on your team will be able to attend the showcase? </p>
                     <p class="survey-description"></p>
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="Attendance"></input>
+                    <br/><span>@error('Attendance'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">How many members of your team would request a vegetarian lunch option? </p>
                     <p class="survey-description"></p>
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="VegLunch"></input>
+                    <br/><span>@error('VegLunch'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Course Number (Example: CSE486):</p>
                     <p class="survey-description"></p>
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="CourseNumber"></input>
+                    <br/><span>@error('CourseNumber'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Will your group be bringing a demo? </p>
@@ -78,7 +89,8 @@
                     <ul>
                         <li><input type="radio" name="Demo" class="survey-input-checkbox" value="Yes">Yes</input></li>
                         <li><input type="radio" name="Demo" class="survey-input-checkbox" value="No">No</input></li>
-                </ul>
+                    </ul>
+                    <br/><span>@error('Demo'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">If so, will your group need access to power? </p>
@@ -86,7 +98,8 @@
                     <ul>
                         <li><input type="radio" name="Power" class="survey-input-checkbox" value="Yes">Yes</input></li>
                         <li><input type="radio" name="Power" class="survey-input-checkbox" value="No">No</input></li>
-                </ul>
+                    </ul>
+                    <br/><span>@error('Power'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Does your group have an NDA?</p>
@@ -94,12 +107,14 @@
                     <ul>
                         <li><input type="radio" name="NDA" class="survey-input-checkbox" value="Yes">Yes</input></li>
                         <li><input type="radio" name="NDA" class="survey-input-checkbox" value="No">No</input></li>
-                </ul>
+                    </ul>
+                    <br/><span>@error('NDA'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">YouTube Video Link: </p>
                     <p class="survey-description">This is the YouTube link for the video overview of your project, and should have the graphic abstract you created as the thumbnail. The project name should be the title of the YouTube video. </p>
                     <input type="text" class="survey-input survey-input-long" placeholder="Your answer: " name="VideoLink"></input>
+                    <br/><span>@error('VideoLink'){{ $message }}@enderror</span>
                 </div>
 
                 <div class="survey-submit">
