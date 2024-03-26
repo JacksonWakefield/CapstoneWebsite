@@ -4,7 +4,7 @@
 
 <body>
     <div>
-        <form>
+        <form action="adminDownload" method="get">
             <button>Download 2024 Showcase Data (as a .csv, which can be opened by Excel/Google Docs)</button>
         </form>
     </div>
