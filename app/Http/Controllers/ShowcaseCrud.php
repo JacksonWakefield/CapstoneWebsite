@@ -107,13 +107,21 @@ class ShowcaseCrud extends Controller
         $data = array(
             'list' => DB::table("admin_pass_hash")->get()
         );
-        foreach( $data as $key ){
-            if(Hash::check($key, $request->input('pass'))){
-                return back()->with("success", "THIS WORKED");
+        
+        foreach( $data['list'] as $key ){
+            if(Hash::check($request->input('pass'), $key->pass_hash)){
+                info("Admin Successfuly Logged In");
+                return redirect("/adminAuth"); // THIS SETUP IS BAD - TODO: Session IDs/cookies/setup the whole user situation
+                //It'll use the "Auth" Facade, so if you're seeing this and want to do it (depends on how secure they
+                //want this info to be), look that up
             }
         }
+        //sample comment
+        info("COULD NOT VERIFY ADMINISTRATION LOGIN");
+        return back()->with("success","Admin Login Attempt Failed - Incorrect Password");
+    }
 
-        return back()->with("error","DID NOT WORK");
+    public function adminAuthIndex(){
+        return view("adminAuth");
     }
 }
-?>
