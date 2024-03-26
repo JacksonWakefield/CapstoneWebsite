@@ -8,7 +8,7 @@
 <body>
 
 <div class="password-form-wrapper">
-    <form>
+    <form action="getPass">
         <label>Password: </label>
         <input type="password" name="pass"></input>
         <button>Submit</button>

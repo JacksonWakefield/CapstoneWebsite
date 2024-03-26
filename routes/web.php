@@ -22,7 +22,9 @@ Route::post('/get', [ShowcaseCrud::class,'get']);
 
 Route::get('/seminars', function () {
     return view('welcome');
-
 });
 
 Route::get('/admin', [ShowcaseCrud::class,'adminIndex']);
+Route::get('/getPass', [ShowcaseCrud::class,'getPass']);
+
+Route::get('/adminAuth', [ShowcaseCrud::class,'adminAuthIndex']);
