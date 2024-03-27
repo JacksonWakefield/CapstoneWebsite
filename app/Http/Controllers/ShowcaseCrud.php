@@ -128,34 +128,38 @@ class ShowcaseCrud extends Controller
     }
 
     public function adminDownload(){
-        $newdata = array(
-            'list' => DB::table("ShowcaseEntries")->get()
-        );
 
-        $csvFileName = 'CSE-Showcase-Data.csv';
-
-        $headers = [
-            'Content-type' => 'text/csv',
-            'Content-Disposition' => 'attatchment; filename="' . $csvFileName . '"',
-        ];
-
-        $handle = fopen('php://output','w');
-
-        $columnNames = ['Email', 'ProjectTitle', 'ProjectDescription', 'TeamName', 'Sponsor', 'MemberNames', 'Attendance', 'VegLunch', 'CourseNumbers', 'Demo', 'Power', 'NDA', 'VideoLink'];
-
-        fputcsv($handle, $columnNames);
-
-        foreach($newdata['list'] as $listing){
-            $row = [];
-            foreach($listing as $key => $value){
-                array_push($row, $value);
+        $callback = function() {
+            $newdata = array(
+                'list' => DB::table("ShowcaseEntries")->get()
+            );
+    
+            $csvFileName = 'CSE-Showcase-Data.csv';
+    
+            $headers = [
+                'Content-type' => 'text/csv',
+                'Content-Disposition' => 'attatchment; filename="' . $csvFileName . '"',
+            ];
+    
+            $handle = fopen('php://output','w');
+    
+            $columnNames = ['Email', 'ProjectTitle', 'ProjectDescription', 'TeamName', 'Sponsor', 'MemberNames', 'Attendance', 'VegLunch', 'CourseNumbers', 'Demo', 'Power', 'NDA', 'VideoLink'];
+    
+            fputcsv($handle, $columnNames);
+    
+            foreach($newdata['list'] as $listing){
+                $row = [];
+                foreach($listing as $key => $value){
+                    array_push($row, $value);
+                }
+    
+                fputcsv($handle, $row);
             }
+    
+            fclose($handle);
+        };
+        
 
-            fputcsv($handle, $row);
-        }
-
-        fclose($handle);
-
-        return Response::make('', 200, $headers);
+        return response()->stream($callback, 200, $headers);
     }
 }
