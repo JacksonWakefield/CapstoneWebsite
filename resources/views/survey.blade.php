@@ -77,12 +77,12 @@
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="Attendance" value="{{old('Attendance')}}"></input>
                     <br/><span>@error('Attendance'){{ $message }}@enderror</span>
                 </div>
-                <div class="survey-question info-wrapper">
+                <!--<div class="survey-question info-wrapper">
                     <p class="survey-label">How many members of your team would request a vegetarian lunch option? </p>
                     <p class="survey-description"></p>
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="VegLunch" value="{{old('VegLunch')}}"></input>
                     <br/><span>@error('VegLunch'){{ $message }}@enderror</span>
-                </div>
+                </div>!-->
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Course Number (Example: CSE486):</p>
                     <p class="survey-description"></p>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Does your group have an NDA?</p>
-                    <p class="survey-description"></p>
+                    <p class="survey-description">If yes, your project information will potentially not be displayed in the showcase event/website - please reach out to your instructor for next steps</p>
                     <ul>
                         <li><input type="radio" name="NDA" class="survey-input-checkbox" value="Yes">Yes</input></li>
                         <li><input type="radio" name="NDA" class="survey-input-checkbox" value="No">No</input></li>
