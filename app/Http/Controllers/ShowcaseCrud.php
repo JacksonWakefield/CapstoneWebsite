@@ -83,17 +83,20 @@ class ShowcaseCrud extends Controller
             Project Title: $ProjectTitle \n
             Project Description: $ProjectDescription \n
             Sponsor: $Sponsor \n
-            MemberNames: $MemberNames \n
+            Team Member Names: $MemberNames \n
             Attendance: $Attendance \n
-            CourseNumber: $CourseNumber \n
+            Course Number: $CourseNumber \n
             Demo: $Demo \n
             Power: $Power \n
             NDA: $NDA \n
-            VideoLink: $VideoLink \n
-            \n";
+            Video Link: $VideoLink \n
+            \n
+            
+            Remember: if you need to edit information submitted in this form, please email: showcasewebsite@asu.edu with - \n
+            1. The name of the information you wish to edit (Example: Team Member Names) \n
+            2. The new information";
 
-            mail('jswakefi@asu.edu', 'Thank you for submitting your capstone survey information', $message);
-
+            mail($Email, 'Thank you for submitting your capstone survey information', $message);
 
             return view("/surveySuccess");
         }else{
