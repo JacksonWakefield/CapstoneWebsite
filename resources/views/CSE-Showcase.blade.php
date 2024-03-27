@@ -41,7 +41,7 @@
                 </div>
                 <div class="showcase-single-description-wrapper individual-wrapper">
                     <h2 class="showcase-single-description-title <?=$i % 2 === 0 ? 'align-right' : 'align-left'?>">
-                        {{$listing->TeamName}}
+                        {{$listing->ProjectTitle}}
                     </h2>
                     <p class="showcase-single-description-p">
                         {{$listing->ProjectDescription}}
