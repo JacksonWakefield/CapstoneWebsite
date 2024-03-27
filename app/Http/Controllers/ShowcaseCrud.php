@@ -60,23 +60,37 @@ class ShowcaseCrud extends Controller
             "VideoLink"=>$request->input("VideoLink")
         ]);
 
+        //THIS ISNT EFFICIENT - on a time crunch here, but this is used as the info in the email thats sent on success
+        $Email = $request->input("Email");
+        $ProjectTitle=$request->input("ProjectTitle");
+        $ProjectDescription=$request->input("ProjectDescription");
+        $Sponsor=$request->input("Sponsor");
+        $MemberNames=$request->input("MemberNames");
+        $Attendance=$request->input("Attendance");
+        $CourseNumber=$request->input("CourseNumber");
+        $Demo=$request->input("Demo");
+        $Power=$request->input("Power");
+        $NDA=$request->input("NDA");
+        $VideoLink=$request->input("VideoLink");
+
         if($query){
             //SEND EMAIL RECIEPT
 
             $message = "Thank you for submitting your capstone survey information. Below is a reciept outlining the information you have entered.
             \n
             \n
-            Email=>$request->input('Email'),
-            ProjectTitle=>$request->input('ProjectTitle'),
-            ProjectDescription=>$request->input('ProjectDescription'),
-            Sponsor=>$request->input('Sponsor'),
-            MemberNames=>$request->input('MemberNames'),
-            Attendance=>$request->input('Attendance'),
-            CourseNumber=>$request->input('CourseNumber'),
-            Demo=>$request->input('Demo'),
-            Power=>$request->input('Power'),
-            NDA=>$request->input('NDA'),
-            VideoLink=>$request->input('VideoLink')";
+            Email: $Email\n
+            Project Title: $ProjectTitle\n
+            Project Description: $ProjectDescription\n
+            Sponsor: $Sponsor\n
+            MemberNames: $MemberNames\n
+            Attendance: $Attendance\n
+            CourseNumber: $CourseNumber\n
+            Demo: $Demo\n
+            Power: $Power\n
+            NDA: $NDA\n
+            VideoLink: $VideoLink\n
+            \n";
 
             mail('jswakefi@asu.edu', 'Thank you for submitting your capstone survey information', $message);
 
