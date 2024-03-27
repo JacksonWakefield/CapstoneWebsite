@@ -6,4 +6,9 @@ div.success-wrapper{
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    font-family: 'Open Sans';
+}
+
+li{
+    list-style-type: none;
 }
