@@ -96,6 +96,7 @@ class ShowcaseCrud extends Controller
             1. The name of the information you wish to edit (Example: Team Member Names) \n
             2. The new information";
 
+            //might need a failsafe for if the email is weird or innacurate
             mail($Email, 'Thank you for submitting your capstone survey information', $message);
 
             return view("/surveySuccess");
