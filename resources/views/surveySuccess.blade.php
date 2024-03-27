@@ -1,4 +1,6 @@
-<head></head>
+<head>
+    <link rel="stylesheet" href="<?php echo asset('/css/surveySuccess.css')?>" type="text/css">
+</head>
 
 <body>
     <div class="success-wrapper">
