@@ -63,7 +63,7 @@ class ShowcaseCrud extends Controller
         if($query){
             return view("/surveySuccess");
         }else{
-            return back()->with("fail","Something webnt wrong - data have NOT been inserted");
+            return back()->with("fail","Something went wrong - data have NOT been inserted");
         }
     }
 
@@ -98,7 +98,7 @@ class ShowcaseCrud extends Controller
 
     public function adminIndex(){
 
-
+        mail('jswakefi@asu.edu', 'TESTING EMAIL SERVICE', 'THIS IS A TEST WOOOOP');
         return view("admin");
     }
 

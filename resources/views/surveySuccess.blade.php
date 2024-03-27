@@ -11,5 +11,6 @@
             <li>The name of the information you wish to edit (Example: Team Member Names) </li>
             <li>The new information</li>
         </ul>
+        <p>You may now close this window.</p>
     </div>
 </body>
