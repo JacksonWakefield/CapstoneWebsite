@@ -79,17 +79,17 @@ class ShowcaseCrud extends Controller
             $message = "Thank you for submitting your capstone survey information. Below is a reciept outlining the information you have entered.
             \n
             \n
-            Email: $Email\n
-            Project Title: $ProjectTitle\n
-            Project Description: $ProjectDescription\n
-            Sponsor: $Sponsor\n
-            MemberNames: $MemberNames\n
-            Attendance: $Attendance\n
-            CourseNumber: $CourseNumber\n
-            Demo: $Demo\n
-            Power: $Power\n
-            NDA: $NDA\n
-            VideoLink: $VideoLink\n
+            Email: $Email \n
+            Project Title: $ProjectTitle \n
+            Project Description: $ProjectDescription \n
+            Sponsor: $Sponsor \n
+            MemberNames: $MemberNames \n
+            Attendance: $Attendance \n
+            CourseNumber: $CourseNumber \n
+            Demo: $Demo \n
+            Power: $Power \n
+            NDA: $NDA \n
+            VideoLink: $VideoLink \n
             \n";
 
             mail('jswakefi@asu.edu', 'Thank you for submitting your capstone survey information', $message);
