@@ -29,3 +29,7 @@ Route::get('/getPass', [ShowcaseCrud::class,'getPass']);
 
 Route::get('/adminAuth', [ShowcaseCrud::class,'adminAuthIndex']);
 Route::get('/adminDownload', [ShowcaseCrud::class,'adminDownload']);
+
+Route::get('/', function(){
+    return view('welcome');
+});
