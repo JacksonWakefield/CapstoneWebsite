@@ -33,7 +33,7 @@
             <!--survey questions !-->
                 <div class="survey-header info-wrapper">
                     <h1 class="survey-header-title">Capstone Showcase Information Form: </h1>
-                    <p class="survey-header-description">Description of this form will go here.</p>
+                    <p class="survey-header-description">If you encounter issues with this form that prohibit you from submitting accurate information, email showcasewebsite@asu.edu with a detailed description of the problem.</p>
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">ASU Email: </p>
