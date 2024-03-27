@@ -16,11 +16,9 @@ class ShowcaseCrud extends Controller
             'Email' => 'required|email|regex:/@asu\.edu$/i',
             'ProjectTitle' => 'required|unique:ShowcaseEntries,ProjectTitle',
             "ProjectDescription"=>"required",
-            "TeamName"=>"required",
             "Sponsor"=>"required",
             "MemberNames"=>"required",
             "Attendance"=>"required",
-            //"VegLunch"=>"required",
             "CourseNumber"=>"required",
             "Demo"=>"required",
             "Power"=>"required",
@@ -33,6 +31,7 @@ class ShowcaseCrud extends Controller
         ]);
 
         if ($validator->fails()) {
+            info("failed but dont know why");
             return back()->withErrors($validator)->withInput();
         }
 
@@ -51,11 +50,9 @@ class ShowcaseCrud extends Controller
             "Email"=>$request->input("Email"),
             "ProjectTitle"=>$request->input("ProjectTitle"),
             "ProjectDescription"=>$request->input("ProjectDescription"),
-            "TeamName"=>$request->input("TeamName"),
             "Sponsor"=>$request->input("Sponsor"),
             "MemberNames"=>$request->input("MemberNames"),
             "Attendance"=>$request->input("Attendance"),
-            //"VegLunch"=>$request->input("VegLunch"),
             "CourseNumber"=>$request->input("CourseNumber"),
             "Demo"=>$request->input("Demo"),
             "Power"=>$request->input("Power"),
