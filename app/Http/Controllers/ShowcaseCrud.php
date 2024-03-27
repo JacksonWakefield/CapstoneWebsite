@@ -145,7 +145,7 @@ class ShowcaseCrud extends Controller
     
             $handle = fopen('php://output','w');
     
-            $columnNames = ['Email', 'ProjectTitle', 'ProjectDescription', 'TeamName', 'Sponsor', 'MemberNames', 'Attendance', 'VegLunch', 'CourseNumbers', 'Demo', 'Power', 'NDA', 'VideoLink'];
+            $columnNames = ['Email', 'ProjectTitle', 'ProjectDescription', 'Sponsor', 'MemberNames', 'Attendance', 'CourseNumbers', 'Demo', 'Power', 'NDA', 'VideoLink'];
     
             fputcsv($handle, $columnNames);
     

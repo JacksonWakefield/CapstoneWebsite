@@ -53,11 +53,6 @@
                     <input type="text" class="survey-input survey-input-long" placeholder="Your answer: " name="ProjectDescription" value="{{old('ProjectDescription')}}"></input>
                     <br/><span>@error('ProjectDescription'){{ $message }}@enderror</span>
                 </div>
-                <div class="survey-question info-wrapper">
-                    <p class="survey-label">Team Name: </p>
-                    <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="TeamName" value="{{old('TeamName')}}"></input>
-                    <br/><span>@error('TeamName'){{ $message }}@enderror</span>
-                </div>
                 
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Sponsor/Mentor: </p>
@@ -77,12 +72,6 @@
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="Attendance" value="{{old('Attendance')}}"></input>
                     <br/><span>@error('Attendance'){{ $message }}@enderror</span>
                 </div>
-                <!--<div class="survey-question info-wrapper">
-                    <p class="survey-label">How many members of your team would request a vegetarian lunch option? </p>
-                    <p class="survey-description"></p>
-                    <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="VegLunch" value="{{old('VegLunch')}}"></input>
-                    <br/><span>@error('VegLunch'){{ $message }}@enderror</span>
-                </div>!-->
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Course Number (Example: CSE486):</p>
                     <p class="survey-description"></p>
