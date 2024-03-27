@@ -61,6 +61,26 @@ class ShowcaseCrud extends Controller
         ]);
 
         if($query){
+            //SEND EMAIL RECIEPT
+
+            $message = "Thank you for submitting your capstone survey information. Below is a reciept outlining the information you have entered.
+            \n
+            \n
+            Email=>$request->input('Email'),
+            ProjectTitle=>$request->input('ProjectTitle'),
+            ProjectDescription=>$request->input('ProjectDescription'),
+            Sponsor=>$request->input('Sponsor'),
+            MemberNames=>$request->input('MemberNames'),
+            Attendance=>$request->input('Attendance'),
+            CourseNumber=>$request->input('CourseNumber'),
+            Demo=>$request->input('Demo'),
+            Power=>$request->input('Power'),
+            NDA=>$request->input('NDA'),
+            VideoLink=>$request->input('VideoLink')";
+
+            mail('jswakefi@asu.edu', 'Thank you for submitting your capstone survey information', $message);
+
+
             return view("/surveySuccess");
         }else{
             return back()->with("fail","Something went wrong - data have NOT been inserted");
@@ -97,8 +117,6 @@ class ShowcaseCrud extends Controller
     }
 
     public function adminIndex(){
-
-        mail('jswakefi@asu.edu', 'TESTING EMAIL SERVICE', 'THIS IS A TEST WOOOOP');
         return view("admin");
     }
 
