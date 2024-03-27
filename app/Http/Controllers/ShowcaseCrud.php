@@ -57,7 +57,8 @@ class ShowcaseCrud extends Controller
             "Demo"=>$request->input("Demo"),
             "Power"=>$request->input("Power"),
             "NDA"=>$request->input("NDA"),
-            "VideoLink"=>$request->input("VideoLink")
+            "VideoLink"=>$request->input("VideoLink"),
+            "DateStamp"=> date("Y-m-d H:i:s")
         ]);
 
         //THIS ISNT EFFICIENT - on a time crunch here, but this is used as the info in the email thats sent on success
