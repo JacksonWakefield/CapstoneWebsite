@@ -128,6 +128,10 @@ class ShowcaseCrud extends Controller
     }
 
     public function adminDownload(){
+        $headers = [
+            'Content-type' => 'text/csv',
+            'Content-Disposition' => 'attatchment; filename="' . $csvFileName . '"',
+        ];
 
         $callback = function() {
             $newdata = array(
@@ -135,11 +139,6 @@ class ShowcaseCrud extends Controller
             );
     
             $csvFileName = 'CSE-Showcase-Data.csv';
-    
-            $headers = [
-                'Content-type' => 'text/csv',
-                'Content-Disposition' => 'attatchment; filename="' . $csvFileName . '"',
-            ];
     
             $handle = fopen('php://output','w');
     
