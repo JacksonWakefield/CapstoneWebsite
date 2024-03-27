@@ -61,7 +61,7 @@ class ShowcaseCrud extends Controller
         ]);
 
         if($query){
-            return back()->with("success","Data have been successfully inserted");
+            return view("/surveySuccess");
         }else{
             return back()->with("fail","Something webnt wrong - data have NOT been inserted");
         }
