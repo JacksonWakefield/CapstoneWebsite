@@ -117,7 +117,13 @@ class ShowcaseCrud extends Controller
     }
 
     public function surveyIndex(){
-        return view("/survey");
+        $projectNames = DB::table('teams_and_teams_ids___sheet1')->pluck('Teams');
+
+        $data = array(
+            'projectNames' => $projectNames
+        );
+
+        return view("/survey",$data);
     }
 
     public function showcaseIndex(){

@@ -6,6 +6,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo asset('/css/header.css')?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('/css/footer.css')?>" type="text/css">
+
+    <style>
+        .survey-input{
+            width: 100%;
+            height: 50px;
+        }
+    </style>
 </head>
 
 
@@ -43,8 +50,12 @@
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Project Title: </p>
-                    <p class="survey-description">Please use the exact same name of your project as it appears in Canvas</p>
-                    <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="ProjectTitle" value="{{old('ProjectTitle')}}"></input>
+                    <p class="survey-description">Please select the project title</p>
+                    <select class="survey-input" name="ProjectTitle">
+                        @foreach ($projectNames as $projectName)
+                            <option value="{{ $projectName }}" @if(old('ProjectTitle') == $projectName) selected @endif>{{ $projectName }}</option>
+                        @endforeach
+                    </select>
                     <br/><span>@error('ProjectTitle'){{ $message }}@enderror</span>
                 </div>
                 <div class="survey-question info-wrapper">
