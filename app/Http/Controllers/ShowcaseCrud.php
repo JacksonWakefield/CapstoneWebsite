@@ -90,8 +90,9 @@ class ShowcaseCrud extends Controller
             \n
             
             Remember: if you need to edit information submitted in this form, please email: showcasewebsite@asu.edu with - \n
-            1. The name of the information you wish to edit (Example: Team Member Names) \n
-            2. The new information";
+            1. The name of your project (exactly as listed on Canvas)
+            2. The name of the information you wish to edit (Example: Team Member Names) \n
+            3. The new information";
 
             //might need a failsafe for if the email is weird or innacurate
             mail($Email, 'Thank you for submitting your capstone survey information', $message);
