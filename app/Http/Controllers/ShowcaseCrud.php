@@ -22,7 +22,7 @@ class ShowcaseCrud extends Controller
             "Demo"=>"required",
             "Power"=>"required",
             "NDA"=> "required",
-            'VideoLink' => 'required|url'
+            'VideoLink' => 'required|url',
         ], [
             'Email.regex' => 'The email must be an "@asu.edu" email address',
             'ProjectTitle.unique' => 'This project name already exists, duplicate entry detected.',
@@ -30,13 +30,12 @@ class ShowcaseCrud extends Controller
         ]);
 
         if ($validator->fails()) {
-            info("failed but dont know why");
             return back()->withErrors($validator)->withInput();
         }
 
         $videolink = $request->input('VideoLink');
         $embedlink = $this->getYouTubeEmbedLink($videolink);
-        $request->merge(['VideoLink' => $embedlink]);
+        //$request->merge(['VideoLink' => $embedlink]);
 
         //$request->validate([
             //"Email"=>"required",
@@ -55,7 +54,8 @@ class ShowcaseCrud extends Controller
             "Demo"=>$request->input("Demo"),
             "Power"=>$request->input("Power"),
             "NDA"=>$request->input("NDA"),
-            "VideoLink"=>$request->input("VideoLink"),
+            "VideoLink"=>$embedlink,
+            "VideoLinkRaw"=>$request->input('VideoLink'),
             "DateStamp"=> date("Y-m-d H:i:s")
         ]);
 
