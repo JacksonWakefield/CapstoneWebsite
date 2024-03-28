@@ -101,7 +101,7 @@
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">YouTube Video Link: </p>
-                    <p class="survey-description">This is the YouTube link for the video overview of your project, and should have the graphic abstract you created as the thumbnail. The project name should be the title of the YouTube video. Note - the link that goes here is exactly what appears in your url bar at the top of your browser. Do not submit the embedded or any other link.</p>
+                    <p class="survey-description">This is the YouTube link for the video overview of your project, and should have the graphic abstract you created as the thumbnail. The project name should be the title of the YouTube video.</p>
                     <p class="survey-description">Note - the link that goes here is exactly what appears in your url bar at the top of your browser. Do not submit the embedded or any other link.</p>
                     <input type="text" class="survey-input survey-input-long" placeholder="Your answer: " name="VideoLink" value="{{old('VideoLink')}}"></input>
                     <br/><span>@error('VideoLink'){{ $message }}@enderror</span>
