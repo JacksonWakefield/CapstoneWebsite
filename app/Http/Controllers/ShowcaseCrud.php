@@ -18,7 +18,6 @@ class ShowcaseCrud extends Controller
             "ProjectDescription"=>"required",
             "Sponsor"=>"required",
             "MemberNames"=>"required",
-            "Attendance"=>"required",
             "CourseNumber"=>"required",
             "Demo"=>"required",
             "Power"=>"required",
@@ -52,7 +51,6 @@ class ShowcaseCrud extends Controller
             "ProjectDescription"=>$request->input("ProjectDescription"),
             "Sponsor"=>$request->input("Sponsor"),
             "MemberNames"=>$request->input("MemberNames"),
-            "Attendance"=>$request->input("Attendance"),
             "CourseNumber"=>$request->input("CourseNumber"),
             "Demo"=>$request->input("Demo"),
             "Power"=>$request->input("Power"),
@@ -67,7 +65,6 @@ class ShowcaseCrud extends Controller
         $ProjectDescription=$request->input("ProjectDescription");
         $Sponsor=$request->input("Sponsor");
         $MemberNames=$request->input("MemberNames");
-        $Attendance=$request->input("Attendance");
         $CourseNumber=$request->input("CourseNumber");
         $Demo=$request->input("Demo");
         $Power=$request->input("Power");
@@ -85,7 +82,6 @@ class ShowcaseCrud extends Controller
             Project Description: $ProjectDescription \n
             Sponsor: $Sponsor \n
             Team Member Names: $MemberNames \n
-            Attendance: $Attendance \n
             Course Number: $CourseNumber \n
             Demo: $Demo \n
             Power: $Power \n
@@ -179,7 +175,7 @@ class ShowcaseCrud extends Controller
     
             $handle = fopen('php://output','w');
     
-            $columnNames = ['Email', 'ProjectTitle', 'ProjectDescription', 'Sponsor', 'MemberNames', 'Attendance', 'CourseNumbers', 'Demo', 'Power', 'NDA', 'VideoLink'];
+            $columnNames = ['Email', 'ProjectTitle', 'ProjectDescription', 'Sponsor', 'MemberNames', 'CourseNumbers', 'Demo', 'Power', 'NDA', 'VideoLink'];
     
             fputcsv($handle, $columnNames);
     
