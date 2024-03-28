@@ -43,7 +43,7 @@
                 </div>
                 <div class="survey-question info-wrapper">
                     <p class="survey-label">Project Title: </p>
-                    <!--<p class="survey-description">sample description</p> !-->
+                    <p class="survey-description">Please use the exact same name of your project as it appears in Canvas</p>
                     <input type="text" class="survey-input survey-input-short" placeholder="Your answer: " name="ProjectTitle" value="{{old('ProjectTitle')}}"></input>
                     <br/><span>@error('ProjectTitle'){{ $message }}@enderror</span>
                 </div>
